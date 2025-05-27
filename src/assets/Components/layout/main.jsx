@@ -1,4 +1,5 @@
 import AddForm from "../movies/AddForm";
+import ListMovies from "../movies/ListMovies";
 
 export default function Main({
   isFormVisible,
@@ -6,6 +7,7 @@ export default function Main({
   formData,
   handleFieldChange,
   movies,
+  handleDeleteItem,
 }) {
   return (
     <div className="main">
@@ -21,26 +23,7 @@ export default function Main({
         ""
       )}
 
-      <div className="row row-gap-3">
-        {movies.map((movie, index) => (
-          <div className="col-4" key={index}>
-            <div className="card">
-              <div className="card-header d-flex justify-content-between">
-                <div className="title">
-                  #{movie.id} - {movie.title}
-                </div>
-                <button
-                  onClick={() => handleDeleteItem(index)}
-                  className="btn btn-danger"
-                >
-                  x
-                </button>
-              </div>
-              <div className="card-body">{movie.category}</div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <ListMovies movies={movies} handleDeleteItem={handleDeleteItem} />
     </div>
   );
 }

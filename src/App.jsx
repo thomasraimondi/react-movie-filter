@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="container">
       <Header
-        isFormVisible={isFormVisible}
+        isAddVisible={isFormVisible}
         setIsFormVisible={setIsFormVisible}
       />
       <Main
@@ -48,6 +48,7 @@ function App() {
         formData={formData}
         handleFieldChange={handleFieldChange}
         movies={movies}
+        handleDeleteItem={handleDeleteItem}
       />
     </div>
   );

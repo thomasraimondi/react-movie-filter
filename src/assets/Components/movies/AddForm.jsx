@@ -25,7 +25,7 @@ export default function AddForm({
         </div>
         <div className="field-2">
           <label className="col-3 me-3" htmlFor="category">
-            Descrizione
+            Categoria:
           </label>
           <input
             value={formData.description}
