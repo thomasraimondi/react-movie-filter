@@ -1,4 +1,5 @@
 import AddForm from "../movies/AddForm";
+import FilterMovies from "../movies/FilterMovies";
 import ListMovies from "../movies/ListMovies";
 
 export default function Main({
@@ -8,6 +9,7 @@ export default function Main({
   handleFieldChange,
   movies,
   handleDeleteItem,
+  isFilterVisible,
 }) {
   return (
     <div className="main">
@@ -18,6 +20,13 @@ export default function Main({
             formData={formData}
             handleFieldChange={handleFieldChange}
           />
+        </div>
+      ) : (
+        ""
+      )}
+      {isFilterVisible ? (
+        <div className="col-4">
+          <FilterMovies movies={movies} />
         </div>
       ) : (
         ""

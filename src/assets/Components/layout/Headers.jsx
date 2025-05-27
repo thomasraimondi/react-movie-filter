@@ -1,8 +1,13 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-export default function Header({ isAddVisible, setIsFormVisible }) {
-  const handleFormVisible = () => setIsFormVisible(!isAddVisible);
-  const handleFilterVisible = () => alert("ciao");
+export default function Header({
+  isAddVisible,
+  setIsAddVisible,
+  isFilterVisible,
+  setIsFilterVisible,
+}) {
+  const handleAddVisible = () => setIsAddVisible(!isAddVisible);
+  const handleFilterVisible = () => setIsFilterVisible(!isFilterVisible);
 
   return (
     <div className="header d-flex justify-content-between p-3">
@@ -13,7 +18,7 @@ export default function Header({ isAddVisible, setIsFormVisible }) {
         <button className="btn btn-primary" onClick={handleFilterVisible}>
           <i className="bi bi-funnel"></i>
         </button>
-        <button className="btn btn-primary" onClick={handleFormVisible}>
+        <button className="btn btn-primary" onClick={handleAddVisible}>
           {isAddVisible ? (
             <i className="bi bi-x"></i>
           ) : (

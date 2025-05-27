@@ -10,7 +10,8 @@ const initialAddForm = {
 };
 
 function App() {
-  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isAddVisible, setIsAddVisible] = useState(false);
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [movies, setMovies] = useState(originalMovies);
   const [formData, setFormData] = useState(initialAddForm);
 
@@ -39,11 +40,14 @@ function App() {
   return (
     <div className="container">
       <Header
-        isAddVisible={isFormVisible}
-        setIsFormVisible={setIsFormVisible}
+        isAddVisible={isAddVisible}
+        setIsAddVisible={setIsAddVisible}
+        isFilterVisible={isFilterVisible}
+        setIsFilterVisible={setIsFilterVisible}
       />
       <Main
-        isFormVisible={isFormVisible}
+        isFormVisible={isAddVisible}
+        isFilterVisible={isFilterVisible}
         handleSubmitform={handleSubmitform}
         formData={formData}
         handleFieldChange={handleFieldChange}
