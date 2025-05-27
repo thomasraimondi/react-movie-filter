@@ -1,14 +1,15 @@
 import { useState } from "react";
 
 import originalMovies from "./data/movies";
+const initialAddForm = {
+  title: "",
+  category: "",
+};
 
 function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [movies, setMovies] = useState(originalMovies);
-  const [formData, setFormData] = useState({
-    title: "",
-    category: "",
-  });
+  const [formData, setFormData] = useState(initialAddForm);
 
   const handleFormVisible = () => setIsFormVisible(!isFormVisible);
   const handleFieldChange = (e) => {
@@ -20,12 +21,9 @@ function App() {
     console.log(e);
     const newMovies = [...movies, formData];
     console.log(newMovies);
-    setProducts(newMovies);
+    setMovies(newMovies);
 
-    setFormData({
-      title: "",
-      category: "",
-    });
+    setFormData(initialAddForm);
   };
 
   const handleDeleteItem = (index) => {
@@ -36,13 +34,11 @@ function App() {
     setMovies(filteredItem);
   };
 
-  console.log(movies);
-
   return (
     <div className="container">
       <div className="header d-flex justify-content-between p-3">
         <div className="title">
-          <h1>Form</h1>
+          <h1>Movies List</h1>
         </div>
         <div className="function">
           <button className="btn btn-primary" onClick={handleFormVisible}>
@@ -91,7 +87,7 @@ function App() {
 
         <div className="row row-gap-3">
           {movies.map((movie, index) => (
-            <div className="col-4" key={movie.id}>
+            <div className="col-4" key={index}>
               <div className="card">
                 <div className="card-header d-flex justify-content-between">
                   <div className="title">
