@@ -28,7 +28,7 @@ export default function AddForm({
             Categoria:
           </label>
           <input
-            value={formData.description}
+            value={formData.category}
             onChange={handleFieldChange}
             type="text"
             name="category"

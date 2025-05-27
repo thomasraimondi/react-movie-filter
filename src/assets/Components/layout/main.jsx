@@ -10,11 +10,12 @@ export default function Main({
   movies,
   handleDeleteItem,
   isFilterVisible,
+  setMovies,
 }) {
   return (
     <div className="main">
       {isFormVisible ? (
-        <div className="col-4">
+        <div className="col">
           <AddForm
             handleSubmitform={handleSubmitform}
             formData={formData}
@@ -25,8 +26,8 @@ export default function Main({
         ""
       )}
       {isFilterVisible ? (
-        <div className="col-4">
-          <FilterMovies movies={movies} />
+        <div className="col">
+          <FilterMovies movies={movies} setMovies={setMovies} />
         </div>
       ) : (
         ""

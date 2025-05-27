@@ -2,7 +2,7 @@ import CardMovie from "./CardMovie";
 
 export default function ListMovies({ movies, handleDeleteItem }) {
   return (
-    <div className="row row-cols-3 g-3">
+    <div className="row row-cols-3 g-3 my-3">
       {movies.map((movie, index) => (
         <CardMovie
           movie={movie}

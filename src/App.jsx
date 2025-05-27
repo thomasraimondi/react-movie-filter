@@ -21,6 +21,9 @@ function App() {
   };
   const handleSubmitform = (e) => {
     e.preventDefault();
+
+    if (!formData.title || !formData.category) return;
+
     console.log(e);
     const newMovies = [...movies, formData];
     console.log(newMovies);
@@ -53,6 +56,7 @@ function App() {
         handleFieldChange={handleFieldChange}
         movies={movies}
         handleDeleteItem={handleDeleteItem}
+        setMovies={setMovies}
       />
     </div>
   );
