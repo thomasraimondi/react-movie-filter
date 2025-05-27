@@ -4,16 +4,16 @@ export default function FilterMovies({ movies, setMovies }) {
   const [filterCategory, setFilterCategory] = useState("");
 
   useEffect(() => {
-    let filteredMovies = [...movies];
-    if (filterCategory != "All") {
+    let filteredMovies = movies;
+
+    if (filterCategory != "") {
       filteredMovies = movies.filter(
         (movie) => movie.category === filterCategory
       );
     }
-    console.log(filteredMovies);
 
-    // setMovies(filteredMovies);
-  }, [filterCategory]);
+    setMovies(filteredMovies);
+  }, [filterCategory, movies]);
 
   const categories = movies.map((movie) => movie.category);
   const filteredCategories = categories.filter(
@@ -29,7 +29,7 @@ export default function FilterMovies({ movies, setMovies }) {
         name="category"
         id=""
       >
-        <option value="All">All</option>
+        <option value="">All</option>
         {filteredCategories.map((category, i) => (
           <option value={category} key={i}>
             {category}

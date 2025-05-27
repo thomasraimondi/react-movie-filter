@@ -1,6 +1,7 @@
 import AddForm from "../movies/AddForm";
 import FilterMovies from "../movies/FilterMovies";
 import ListMovies from "../movies/ListMovies";
+import EditMovie from "../movies/EditMovie";
 
 export default function Main({
   isFormVisible,
@@ -11,6 +12,7 @@ export default function Main({
   handleDeleteItem,
   isFilterVisible,
   setMovies,
+  isEditVisible,
 }) {
   return (
     <div className="main">
@@ -28,6 +30,13 @@ export default function Main({
       {isFilterVisible ? (
         <div className="col">
           <FilterMovies movies={movies} setMovies={setMovies} />
+        </div>
+      ) : (
+        ""
+      )}
+      {isEditVisible ? (
+        <div className="col">
+          <EditMovie movies={movies} />
         </div>
       ) : (
         ""
