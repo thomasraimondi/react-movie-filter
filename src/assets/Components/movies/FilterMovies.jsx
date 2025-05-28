@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
+import originalMovies from "../../../data/movies";
 
 export default function FilterMovies({ movies, setMovies }) {
   const [filterCategory, setFilterCategory] = useState("");
 
   useEffect(() => {
-    let filteredMovies = movies;
+    let filteredMovies = originalMovies;
 
     if (filterCategory != "") {
-      filteredMovies = movies.filter(
+      filteredMovies = originalMovies.filter(
         (movie) => movie.category === filterCategory
       );
     }
 
     setMovies(filteredMovies);
-  }, [filterCategory, movies]);
+  }, [filterCategory]);
 
-  const categories = movies.map((movie) => movie.category);
+  const categories = originalMovies.map((movie) => movie.category);
   const filteredCategories = categories.filter(
     (category, index) => categories.indexOf(category) === index
   );
